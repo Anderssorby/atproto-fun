@@ -1,5 +1,5 @@
 import { NodeOAuthClient } from '@atproto/oauth-client-node'
-import type { Database } from '#/db'
+import type { Database } from '#/lib/db'
 import { env } from '#/lib/env'
 import { SessionStore, StateStore } from './storage'
 

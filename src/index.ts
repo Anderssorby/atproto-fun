@@ -1,3 +1,4 @@
+'use server';
 import events from 'node:events'
 import type http from 'node:http'
 import express, { type Express } from 'express'
@@ -5,13 +6,13 @@ import { pino } from 'pino'
 import type { OAuthClient } from '@atproto/oauth-client-node'
 import { Firehose } from '@atproto/sync'
 
-import { createDb, migrateToLatest } from '#/db'
+import { createDb, migrateToLatest } from '#/lib/db'
 import { env } from '#/lib/env'
-import { createIngester } from '#/ingester'
+import { createIngester } from '#/lib/ingester'
 import { createRouter } from '#/routes'
 import { createClient } from '#/auth/client'
 import { createBidirectionalResolver, createIdResolver, BidirectionalResolver } from '#/id-resolver'
-import type { Database } from '#/db'
+import type { Database } from '#/lib/db'
 import { IdResolver, MemoryCache } from '@atproto/identity'
 
 // Application state passed to the router and elsewhere
